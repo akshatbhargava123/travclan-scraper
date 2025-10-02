@@ -1,0 +1,17 @@
+{
+  "message": "Internal Server Error. Please Try Again.",
+  "httpStatusCode": 500,
+  "error": {
+    "code": 1013,
+    "message": "Internal Server Error. Please Try Again.",
+    "errors": [
+      "No rooms available with selected criteria"
+    ],
+    "traceId": "cb324f0c-b4e6-49e8-8866-3f1cc1738f71",
+    "traceIdDetails": {
+      "id": "cb324f0c-b4e6-49e8-8866-3f1cc1738f71",
+      "remainingTime": 2699,
+      "createdAt": "2025-10-05T05:48:44"
+    }
+  }
+}
