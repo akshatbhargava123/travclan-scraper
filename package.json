@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "deno run -A --env-file main.ts"
+    "start": "bun run main.ts"
   },
   "devDependencies": {
     "@types/node": "^24.6.2"

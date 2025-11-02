@@ -23,7 +23,7 @@ export class TravclanHotelScraper {
             "headers": {
                 "accept": "application/json, text/plain, */*",
                 "accept-language": "en-US,en-GB;q=0.9,en;q=0.8,hi;q=0.7",
-                "authorization": `Bearer ${Deno.env.get("TRAVCLAN_AUTH_TOKEN")}`,
+                "authorization": `Bearer ${Bun.env.TRAVCLAN_AUTH_TOKEN}`,
                 "authorization-mode": "AWSCognito",
                 "content-type": "application/json",
                 "sec-ch-ua": "\"Google Chrome\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",

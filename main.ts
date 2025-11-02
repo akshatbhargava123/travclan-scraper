@@ -11,8 +11,8 @@ async function main() {
     
     for (let day = 10; day <= 30; day++) {
       const promise = new Promise<void>(async (resolve) => {
-        const checkInDate = `2025-10-${day.toString().padStart(2, '0')}`;
-        const checkOutDate = `2025-10-${(day + 1).toString().padStart(2, '0')}`;
+        const checkInDate = `2025-11-${day.toString().padStart(2, '0')}`;
+        const checkOutDate = `2025-11-${(day + 1).toString().padStart(2, '0')}`;
 
         const scraper = new TravclanHotelScraper(hotelId.toString());
 
