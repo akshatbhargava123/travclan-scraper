@@ -1,6 +1,7 @@
 import { TravclanHotelScraper } from './travclan-scraper.ts';
 import { sleep, writeFile } from './utils.ts';
 import { hotels } from './mocks/hotels.ts';
+import { saveHotelData } from './supabase-client.ts';
 
 
 async function main() {
@@ -25,6 +26,9 @@ async function main() {
 
         const fileName = `output/${hotelId}/${checkInDate}.json`;
         await writeFile(fileName, JSON.stringify(res, null, 2));
+
+        // Also save to Supabase
+        await saveHotelData(hotelId.toString(), checkInDate, res);
 
         console.log(`✅ Saved hotel booking info for ${checkInDate} for ${hotelId}`);
 
