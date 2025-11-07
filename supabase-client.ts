@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import { compactHotelData } from './data-compactor.ts';
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_KEY || process.env.SUPABASE_ANON_KEY;
@@ -17,12 +18,20 @@ export async function saveHotelData(hotelId: string, checkInDate: string, data: 
       return { success: false, skipped: true };
     }
 
+    // Compact the data to only essential fields
+    const compactedData = compactHotelData(data);
+
+    if (!compactedData) {
+      console.log(`⏭️  Skipping invalid data for hotel ${hotelId} on ${checkInDate}`);
+      return { success: false, skipped: true };
+    }
+
     const { error } = await supabase
       .from('hotels')
       .upsert({
         hotel_id: hotelId,
         check_in_date: checkInDate,
-        data: data,
+        data: compactedData,
       }, {
         onConflict: 'hotel_id,check_in_date'
       });
